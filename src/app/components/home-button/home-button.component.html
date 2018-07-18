@@ -1,0 +1,10 @@
+<div *ngIf="loading">Downloading gnomes ...</div>
+
+<button md-button (click)="showList()" *ngIf="!loading">
+  Show List of Gnomes</button>
+
+<ol>
+  <li *ngFor="let gnome of Gnomes; let i = index">
+    {{ i + 1 }} - {{ gnome.name }}
+  </li>
+</ol>
