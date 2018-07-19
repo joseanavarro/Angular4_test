@@ -48,7 +48,7 @@ export class HomeComponent implements OnInit {
   /**
    * Show gnome list
    *
-   * @memberof HomeButtonComponent
+   * @memberof HomeComponent
    */
   showList() {
     // Get the full list of gnomes
@@ -60,7 +60,7 @@ export class HomeComponent implements OnInit {
    * Show gnome details
    *
    * @param {*} i
-   * @memberof HomeButtonComponent
+   * @memberof HomeComponent
    */
   showGnome(i: any): void {
 

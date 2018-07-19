@@ -5,3 +5,11 @@
   border: 2px solid white;
   height: 2em;
 }
+
+img {
+  display: block;
+  max-width: 230px;
+  max-height: 195px;
+  width: auto;
+  height: auto;
+}
