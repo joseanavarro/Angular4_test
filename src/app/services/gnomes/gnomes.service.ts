@@ -72,5 +72,15 @@ export class GnomesService {
     return this.Gnomes;
   }
 
+  /**
+   * Return a gnome defoined by index
+   *
+   * @param {*} i
+   * @returns {HabItem}
+   * @memberof GnomesService
+   */
+  public getGnome(i: any): HabItem {
+    return this.Gnomes[i];
+  }
 
 }

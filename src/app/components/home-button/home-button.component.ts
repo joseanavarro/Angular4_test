@@ -11,8 +11,10 @@ import { GnomesService } from '../../services/gnomes/gnomes.service';
 export class HomeButtonComponent implements OnInit {
 
   Gnomes: HabItem[];
-  loading: boolean = true;
-  haserror: boolean = false;
+  Gnome: HabItem;
+  loading = true;
+  haserror = false;
+  showtable = false;
 
   constructor(
     private gnomes: GnomesService
@@ -46,6 +48,19 @@ export class HomeButtonComponent implements OnInit {
   showList() {
     // Get the full list of gnomes
     this.Gnomes = this.gnomes.getAllGnomes();
+    this.showtable = true;
+  }
+
+  /**
+   * Show gnome details
+   *
+   * @param {*} i
+   * @memberof HomeButtonComponent
+   */
+  showGnome(i: any): void {
+
+    this.Gnome = this.gnomes.getGnome(i);
+    alert(this.Gnome.name);
   }
 
 }

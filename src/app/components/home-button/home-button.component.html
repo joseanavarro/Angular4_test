@@ -3,8 +3,17 @@
 <button md-button (click)="showList()" *ngIf="!loading">
   Show List of Gnomes</button>
 
-<ol>
-  <li *ngFor="let gnome of Gnomes; let i = index">
-    {{ i + 1 }} - {{ gnome.name }}
-  </li>
-</ol>
+
+<div class="container" *ngIf="showtable">
+  <div class="row">
+    <div class="col-sm-2 col-md-4 col-lg-12 head">Name</div>
+    <div class="col-sm-2 col-md-4 col-lg-12 head">Age</div>
+    <div class="col-sm-2 col-md-4 col-lg-12 head">Hair color</div>
+  </div>
+
+  <div class="row" *ngFor="let gnome of Gnomes; let i = index" (click)="showGnome(i)">
+    <div class="col-sm-2 col-md-4 col-lg-12">{{ gnome.name }}</div>
+    <div class="col-sm-2 col-md-4 col-lg-12">{{ gnome.age }}</div>
+    <div class="col-sm-2 col-md-4 col-lg-12">{{ gnome.hair_color }}</div>
+  </div>
+</div>
