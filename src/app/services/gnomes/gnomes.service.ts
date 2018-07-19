@@ -3,7 +3,7 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/timeout';
 import { Observable } from 'rxjs/Observable';
 import { HabItem } from '../../models/HabItem';
-import { AppConstant } from '../../services/app-constant/app-constant.service';
+import { AppConstant } from '../app-constant/app-constant.service';
 
 @Injectable()
 export class GnomesService {

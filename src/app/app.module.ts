@@ -5,7 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ImgCacheModule } from 'ng-imgcache';
 import { AppComponent } from './app.component';
 import { HabItemComponent } from './components/hab-item/hab-item.component';
-import { HomeButtonComponent } from './components/home-button/home-button.component';
+import { HomeComponent } from './components/home/home.component';
 import { SearchTextPipe } from './pipes/search-text.pipe';
 import { AppConstant } from './services/app-constant/app-constant.service';
 import { GnomesService } from './services/gnomes/gnomes.service';
@@ -14,7 +14,7 @@ import { GnomesService } from './services/gnomes/gnomes.service';
   declarations: [
     AppComponent,
     HabItemComponent,
-    HomeButtonComponent,
+    HomeComponent,
     SearchTextPipe
   ],
   imports: [

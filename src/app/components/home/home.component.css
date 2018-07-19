@@ -26,3 +26,8 @@
   border: 0px solid white;
   height: 3em;
 }
+
+.btn-primary {
+  background: #0099cc;
+  color: #ffffff;
+}

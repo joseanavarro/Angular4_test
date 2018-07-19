@@ -1,7 +1,7 @@
 <div class="container" *ngIf="loading">Downloading gnomes ...</div>
 
 
-<div class="container" *ngIf="showtable">
+<div class="container" *ngIf="showtable && !detailView">
   <b>Gnomes listed:</b> {{ counter }}
   <br />
   <br />
@@ -29,3 +29,11 @@
     <div class="col-sm-2 col-md-4 col-lg-4">{{ gnome.hair_color }}</div>
   </div>
 </div>
+<div class="container" *ngIf="detailView">
+  <button class="btn btn-primary" (click)="closeDetail()">Back</button>
+</div>
+<br />
+
+<app-hab-item [data]="Gnome" *ngIf="detailView">
+
+</app-hab-item>

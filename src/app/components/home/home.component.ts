@@ -4,11 +4,11 @@ import { HabItem } from '../../models/HabItem';
 import { GnomesService } from '../../services/gnomes/gnomes.service';
 
 @Component({
-  selector: 'app-home-button',
-  templateUrl: './home-button.component.html',
-  styleUrls: ['./home-button.component.css']
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
 })
-export class HomeButtonComponent implements OnInit {
+export class HomeComponent implements OnInit {
 
   Gnomes: HabItem[];
   Gnome: HabItem;
@@ -16,6 +16,7 @@ export class HomeButtonComponent implements OnInit {
   haserror = false;
   showtable = false;
   counter: number;
+  detailView = false;
 
   // filter The object containing the filter values to apply to gnomefilter
   filter: HabItem = new HabItem();
@@ -25,7 +26,7 @@ export class HomeButtonComponent implements OnInit {
   /**
    *
    *
-   * @memberof HomeButtonComponent
+   * @memberof HomeComponent
    */
   ngOnInit() {
 
@@ -64,15 +65,26 @@ export class HomeButtonComponent implements OnInit {
   showGnome(i: any): void {
 
     this.Gnome = this.gnomes.getGnome(i);
-    alert(this.Gnome.name);
-
-    //   <div class="col-sm-2 col-md-4 col-lg-12">
-    //   <img img-cache img-cache-src="{{ gnome.thumbnail }}">
-    // </div>
-
+    this.detailView = true;
   }
 
+  /**
+   * set the number of displeyd results
+   *
+   * @param {*} count
+   * @memberof HomeComponent
+   */
   setCounter(count) {
     this.counter = count;
   }
+
+  /**
+   * Close detail view
+   *
+   * @memberof HomeComponent
+   */
+  closeDetail() {
+    this.detailView = false;
+  }
+
 }
