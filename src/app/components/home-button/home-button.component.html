@@ -1,19 +1,31 @@
-<div *ngIf="loading">Downloading gnomes ...</div>
-
-<button md-button (click)="showList()" *ngIf="!loading">
-  Show List of Gnomes</button>
+<div class="container" *ngIf="loading">Downloading gnomes ...</div>
 
 
 <div class="container" *ngIf="showtable">
+  <b>Gnomes listed:</b> {{ counter }}
+  <br />
+  <br />
   <div class="row">
-    <div class="col-sm-2 col-md-4 col-lg-12 head">Name</div>
-    <div class="col-sm-2 col-md-4 col-lg-12 head">Age</div>
-    <div class="col-sm-2 col-md-4 col-lg-12 head">Hair color</div>
+    <div class="col-sm-2 col-md-4 col-lg-4 filt">
+      <input class="form-control" type="text" name="name" placeholder="select name" [(ngModel)]="filter.name">
+    </div>
+    <div class="col-sm-2 col-md-4 col-lg-4 filt">
+      <input class="form-control" type="text" name="age" placeholder="select age" [(ngModel)]="filter.age">
+    </div>
+    <div class="col-sm-2 col-md-4 col-lg-4 filt">
+      <input class="form-control" type="text" name="hair_color" placeholder="select hair color" [(ngModel)]="filter.hair_color">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-2 col-md-4 col-lg-4 head">Name</div>
+    <div class="col-sm-2 col-md-4 col-lg-4 head">Age</div>
+    <div class="col-sm-2 col-md-4 col-lg-4 head">Hair color</div>
   </div>
 
-  <div class="row" *ngFor="let gnome of Gnomes; let i = index" (click)="showGnome(i)">
-    <div class="col-sm-2 col-md-4 col-lg-12">{{ gnome.name }}</div>
-    <div class="col-sm-2 col-md-4 col-lg-12">{{ gnome.age }}</div>
-    <div class="col-sm-2 col-md-4 col-lg-12">{{ gnome.hair_color }}</div>
+  <div class="row" *ngFor="let gnome of Gnomes  | searchText:filter; let rowIndex = index" (click)="showGnome(gnome.id)">
+    {{ setCounter(rowIndex+1) }}
+    <div class="col-sm-2 col-md-4 col-lg-4">{{ gnome.name }}</div>
+    <div class="col-sm-2 col-md-4 col-lg-4">{{ gnome.age }}</div>
+    <div class="col-sm-2 col-md-4 col-lg-4">{{ gnome.hair_color }}</div>
   </div>
 </div>

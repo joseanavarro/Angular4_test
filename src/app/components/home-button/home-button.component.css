@@ -18,3 +18,11 @@
   border: 1px solid white;
   height: 3em;
 }
+
+.filt {
+  background-color: white;
+  color: white;
+  line-height: 3em;
+  border: 0px solid white;
+  height: 3em;
+}

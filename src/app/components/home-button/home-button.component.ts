@@ -15,10 +15,12 @@ export class HomeButtonComponent implements OnInit {
   loading = true;
   haserror = false;
   showtable = false;
+  counter: number;
 
-  constructor(
-    private gnomes: GnomesService
-  ) { }
+  // filter The object containing the filter values to apply to gnomefilter
+  filter: HabItem = new HabItem();
+
+  constructor(private gnomes: GnomesService) { }
 
   /**
    *
@@ -32,6 +34,8 @@ export class HomeButtonComponent implements OnInit {
       .then(() => {
         this.loading = false;
         console.log('Data loaded');
+        this.Gnomes = this.gnomes.getAllGnomes();
+        this.showtable = true;
       }, () => {
         this.loading = false;
         this.haserror = true;
@@ -61,6 +65,14 @@ export class HomeButtonComponent implements OnInit {
 
     this.Gnome = this.gnomes.getGnome(i);
     alert(this.Gnome.name);
+
+    //   <div class="col-sm-2 col-md-4 col-lg-12">
+    //   <img img-cache img-cache-src="{{ gnome.thumbnail }}">
+    // </div>
+
   }
 
+  setCounter(count) {
+    this.counter = count;
+  }
 }
